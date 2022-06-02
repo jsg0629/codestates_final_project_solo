@@ -1,11 +1,11 @@
 import styles from './Main.module.scss'
-import Nav from 'components/Nav'
+import img from '../../assets/images/photo.jpg'
 
 const Main = () => {
   return (
-    <div>
-      <Nav />
-      Main
+    <div className={styles.appWrapper}>
+      <div className={styles.main}>Main</div>
+      <img src={img} alt='dwqdwq' />
     </div>
   )
 }

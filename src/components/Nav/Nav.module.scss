@@ -1,0 +1,96 @@
+@use '/src/styles/constants/colors';
+@use '/src/styles/mixins/flexbox';
+
+.navWrapper {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 80px;
+  border-bottom: 1px solid #cccccc;
+  backdrop-filter: blur(30px);
+  @include flexbox.flexbox(between, center);
+
+  .leftItems {
+    margin-left: 80px;
+
+    ul {
+      @include flexbox.flexbox;
+
+      .navDiscover {
+        margin-left: 50px;
+        font-size: 20px;
+        color: colors.$BLACK;
+        letter-spacing: 0.01rem;
+        transition: all 0.3s ease;
+      }
+
+      .navDiscover:hover {
+        color: #3f51b5;
+      }
+    }
+  }
+
+  .rightItems {
+    @include flexbox.flexbox;
+
+    .searchInputBox {
+      position: relative;
+      width: 220px;
+      height: 37px;
+      margin-right: 50px;
+      border-bottom: 1px solid rgba(0, 0, 0, 42%);
+      transition: all 0.1s ease-in-out;
+
+      input {
+        height: inherit;
+        margin-left: 10px;
+
+        &:focus + .separator {
+          opacity: 1;
+          transform: scaleX(1) translateY(-2px);
+        }
+      }
+
+      .separator {
+        display: block;
+        width: 100%;
+        height: 2px;
+        background: #3f51b5;
+        opacity: 0;
+        transition: all 0.2s cubic-bezier(0, 0, 0.52, 1.11);
+        transform: scaleX(0) translateY(-2px);
+        transform-origin: 50%;
+      }
+
+      .searchIcon {
+        position: absolute;
+        top: 11px;
+        right: 0;
+        cursor: pointer;
+        fill: #413c3c65;
+      }
+    }
+
+    .searchInputBox:hover {
+      border-bottom: 2px solid colors.$BLACK;
+    }
+
+    .loginBtn {
+      width: 6rem;
+      height: 2.3rem;
+      padding: 6px 16px;
+      margin-right: 80px;
+      font-weight: 500;
+      color: colors.$WHITE;
+      letter-spacing: 0.01rem;
+      background-color: #3f51b5;
+      border-radius: 2rem;
+      transition: all 0.3s ease;
+    }
+
+    .loginBtn:hover {
+      background-color: #232e69;
+    }
+  }
+}
