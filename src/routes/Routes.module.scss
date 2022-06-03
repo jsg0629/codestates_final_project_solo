@@ -1,7 +1,24 @@
 @use '/src/styles/constants/colors';
+@use '/src/styles/mixins/flexbox';
 
 main {
   width: 1500px;
   padding-top: 80px;
   margin: 0 auto;
+}
+
+.footerWrapper {
+  height: 65px;
+  margin: 0 80px;
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 65px;
+  letter-spacing: 0.0075em;
+  @include flexbox.flexbox(between, center);
+
+  .secondItem {
+    svg {
+      color: black;
+    }
+  }
 }

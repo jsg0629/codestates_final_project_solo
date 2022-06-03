@@ -3,7 +3,6 @@
 
 .appWrapper {
   height: 800px;
-  border-bottom: 1px solid #cccccc;
   @include flexbox.flexbox(between, center);
 
   .titleBox > * {
