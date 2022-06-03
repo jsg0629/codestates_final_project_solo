@@ -125,6 +125,54 @@ class UserService {
     }
   }
 
+  // 유저 정보 id로 불러오기
+  async getOtherUserInfo(id) {
+    try {
+      const user = await this.User.findOne({
+        attributes: ['id', 'name', 'user_id'],
+        where: { id },
+      })
+
+      if (user === null) {
+        throw Error('Not Found User')
+      }
+
+      const user_profile = await this.Profile.findOne({
+        attributes: ['id', 'picture', 'description', 'instargram', 'tweeter', 'facebook'],
+        where: { user_id: id },
+      })
+
+      return {
+        user,
+        user_profile,
+      }
+    } catch (err) {
+      throw Error(err.toString())
+    }
+  }
+
+  // 내 유저 데이터 수정
+  async putMyUserInfo(user_id, new_user_desc, new_user_picture, new_user_name, instargram, tweeter, facebook) {
+    try {
+      const { user, user_profile } = await this.getMyUserInfo(user_id)
+
+      await user.update({ name: new_user_name })
+      await user.save()
+
+      await user_profile.update({
+        picture: new_user_picture,
+        description: new_user_desc,
+        instargram,
+        tweeter,
+        facebook,
+      })
+      await user_profile.save()
+
+      return { user, user_profile }
+    } catch (err) {
+      throw Error(err.toString())
+    }
+  }
   // Artworks Page Top Creator 16명 Users 정보 가져오기
   async getTopUsers() {
     try {

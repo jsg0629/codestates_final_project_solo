@@ -67,3 +67,48 @@ router.get('/top', async (req, res) => {
     res.status(404).json(err.toString())
   }
 })
+
+// 나의 user 정보 가져오기
+router.get('/', async (req, res) => {
+  const { user_id } = req.session
+  try {
+    if (user_id === undefined) return res.status(401).json('Error: Unauthorized')
+    const user = await UserServiceInstance.getMyUserInfo(user_id)
+    return res.status(200).json(user)
+  } catch (err) {
+    return res.status(404).json(err.toString())
+  }
+})
+
+// 나의 user 정보(닉네임)이나 프로필 수정)
+router.put('/', async (req, res) => {
+  const { user_id } = req.session
+  const { user_desc, user_picture, user_name, instargram, tweeter, facebook } = req.body
+
+  try {
+    if (user_id === undefined) return res.status(401).json('Error: Unauthorized')
+    const updated_user = await UserServiceInstance.putMyUserInfo(
+      user_id,
+      user_desc,
+      user_picture,
+      user_name,
+      instargram,
+      tweeter,
+      facebook
+    )
+    return res.status(201).json(updated_user)
+  } catch (err) {
+    return res.status(404).json(err.toString())
+  }
+})
+
+// 다른 특정 user 정보 가져오기
+router.get('/:id', async (req, res) => {
+  const { id } = req.params
+  try {
+    const user = await UserServiceInstance.getOtherUserInfo(id)
+    return res.status(200).json(user)
+  } catch (err) {
+    return res.status(404).json(err.toString())
+  }
+})
