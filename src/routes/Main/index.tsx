@@ -1,20 +1,31 @@
+import { useQuery } from 'react-query'
+
 import styles from './Main.module.scss'
-import artWorkImg from '../../assets/images/ArtWork.jpg'
+import { getMainData } from '../../services/main/get'
+import Error from 'components/Error/Index'
 
 const Main = () => {
+  const { data, isError, isLoading } = useQuery(['main'], getMainData())
+
+  if (isError) return <Error />
+
   return (
-    <div className={styles.appWrapper}>
-      <div className={styles.titleBox}>
-        <div className={styles.firstItem}>
-          Donate for your <mark>ARTIST</mark>
+    <div>
+      {isLoading ? null : (
+        <div className={styles.appWrapper}>
+          <div className={styles.titleBox}>
+            <div className={styles.firstItem}>
+              Donate for your <mark>ARTIST</mark>
+            </div>
+            <div className={styles.secondItem}>
+              Sell your <mark>ARTWORK</mark>
+            </div>
+          </div>
+          <div className={styles.bannerArtwork}>
+            <img src={data.imgURI} alt='artWorkImg' />
+          </div>
         </div>
-        <div className={styles.secondItem}>
-          Sell your <mark>ARTWORK</mark>
-        </div>
-      </div>
-      <div className={styles.bannerArtwork}>
-        <img src={artWorkImg} alt='artWorkImg' />
-      </div>
+      )}
     </div>
   )
 }
