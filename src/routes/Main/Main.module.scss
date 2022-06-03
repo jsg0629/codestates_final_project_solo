@@ -1,3 +1,71 @@
+@use '/src/styles/constants/colors';
+@use '/src/styles/mixins/flexbox';
+
 .appWrapper {
-  height: 1500px;
+  height: 800px;
+  border-bottom: 1px solid #cccccc;
+  @include flexbox.flexbox(between, center);
+
+  .titleBox > * {
+    margin-bottom: 3.5rem;
+    font-size: 3.75rem;
+    font-weight: 300;
+    line-height: 1.2;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    mark {
+      font-size: 3.75rem;
+      letter-spacing: 1px;
+      background-clip: text;
+      animation: hue 10s infinite linear;
+      -webkit-text-fill-color: transparent;
+
+      @keyframes hue {
+        from {
+          filter: hue-rotate(0deg);
+        }
+
+        to {
+          filter: hue-rotate(-360deg);
+        }
+      }
+    }
+  }
+
+  .titleBox {
+    text-align: center;
+
+    .firstItem {
+      mark {
+        background-image: linear-gradient(92deg, #676ffd, #0005ff);
+      }
+    }
+
+    .secondItem {
+      mark {
+        background-image: linear-gradient(92deg, #ff8f6c, #ff1a1a);
+      }
+    }
+  }
+
+  .bannerArtwork {
+    height: 30rem;
+    overflow: hidden;
+    color: rgba(0, 0, 0, 87%);
+    cursor: pointer;
+    border-radius: 4px;
+    box-shadow: 0 7px 8px -4px rgb(0 0 0 / 20%), 0 12px 17px 2px rgb(0 0 0 / 14%), 0 5px 22px 4px rgb(0 0 0 / 12%);
+    transition: box-shadow 0.7s ease;
+
+    img {
+      width: 400px;
+      height: 480px;
+      object-fit: cover;
+    }
+  }
+
+  .bannerArtwork:hover {
+    box-shadow: rgba(50, 50, 93, 25%) 0 50px 100px -20px, rgba(0, 0, 0, 30%) 0 30px 60px -30px;
+  }
 }

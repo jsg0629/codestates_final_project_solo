@@ -1,11 +1,20 @@
 import styles from './Main.module.scss'
-import img from '../../assets/images/photo.jpg'
+import artWorkImg from '../../assets/images/ArtWork.jpg'
 
 const Main = () => {
   return (
     <div className={styles.appWrapper}>
-      <div className={styles.main}>Main</div>
-      <img src={img} alt='dwqdwq' />
+      <div className={styles.titleBox}>
+        <div className={styles.firstItem}>
+          Donate for your <mark>ARTIST</mark>
+        </div>
+        <div className={styles.secondItem}>
+          Sell your <mark>ARTWORK</mark>
+        </div>
+      </div>
+      <div className={styles.bannerArtwork}>
+        <img src={artWorkImg} alt='artWorkImg' />
+      </div>
     </div>
   )
 }

@@ -13,7 +13,9 @@ import Nav from 'components/Nav'
 const App = () => {
   return (
     <div className={styles.appWrapper}>
-      <Nav />
+      <header>
+        <Nav />
+      </header>
       <div className={styles.app}>
         <main>
           <Routes>
