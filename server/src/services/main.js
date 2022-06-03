@@ -4,8 +4,6 @@ import db from '../models/index'
 
 class MainService {
   constructor() {
-    this.User = db.User
-    this.Profile = db.Profile
     this.Artwork = db.Artwork
   }
 
