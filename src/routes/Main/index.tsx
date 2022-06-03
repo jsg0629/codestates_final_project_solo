@@ -2,7 +2,8 @@ import { useQuery } from 'react-query'
 
 import styles from './Main.module.scss'
 import { getMainData } from '../../services/main/get'
-import Error from 'components/Error/Index'
+import Error from 'components/Error'
+import Loading from 'components/Loading'
 
 const Main = () => {
   const { data, isError, isLoading } = useQuery(['main'], getMainData())
@@ -11,7 +12,9 @@ const Main = () => {
 
   return (
     <div>
-      {isLoading ? null : (
+      {isLoading ? (
+        <Loading />
+      ) : (
         <div className={styles.appWrapper}>
           <div className={styles.titleBox}>
             <div className={styles.firstItem}>
