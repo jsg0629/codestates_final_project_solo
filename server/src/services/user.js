@@ -124,6 +124,41 @@ class UserService {
       throw Error(err.toString())
     }
   }
+
+  // Artworks Page Top Creator 16명 Users 정보 가져오기
+  async getTopUsers() {
+    try {
+      const topUsers = []
+      const users = await db.User.findAll({
+        // 판매량순으로 유저 정렬
+        order: [[db.Sequelize.cast(db.Sequelize.col('total_sales'), 'FLOAT'), 'DESC']],
+        limit: 16,
+        where: {
+          [db.Sequelize.Op.not]: [{ name: 'server' }],
+        },
+      })
+
+      for (let i = 0; i < users.length; i += 1) {
+        const profile = await db.Profile.findOne({
+          // 판매량순으로 정렬된 유저데이터로 프로필 테이블 조회
+          where: { user_id: users[i].id },
+        })
+
+        if (profile === null) {
+          break
+        }
+        topUsers[i] = {
+          id: users[i].id,
+          name: users[i].name,
+          ProfileImg: profile.picture,
+        }
+      }
+
+      return topUsers
+    } catch (err) {
+      throw Error(err.toString())
+    }
+  }
 }
 
 export default UserService
