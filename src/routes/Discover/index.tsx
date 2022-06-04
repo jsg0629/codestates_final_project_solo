@@ -1,6 +1,7 @@
 import styles from './Discover.module.scss'
 import TopArtistSlider from './TopArtistSlider'
 import ArtworkList from './ArtworkList'
+import TagList from './TagList.tsx'
 
 const Discover = () => {
   return (
@@ -11,6 +12,7 @@ const Discover = () => {
       </section>
       <section className={styles.discoverBox}>
         <h1>Discover</h1>
+        <TagList />
         <ArtworkList />
       </section>
     </div>
