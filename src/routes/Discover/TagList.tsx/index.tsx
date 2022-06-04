@@ -7,12 +7,13 @@ import { topTagDataState } from 'states/artwork'
 
 import { ITopTagData } from 'types/artwork'
 
-const TagList = () => {
+const TagList = ({ setTagId }: { setTagId: Function }) => {
   const [tagsData] = useRecoil(topTagDataState)
   const [clickedTagId, setClickedTagId] = useState(0)
 
   const handleTagClick = (Id: number) => {
     setClickedTagId(Id)
+    setTagId(Id === 0 ? undefined : Id)
   }
   return (
     <ul className={styles.tagListWrapper}>

@@ -26,9 +26,6 @@ const Discover = () => {
     isLoading: isLoadingArtworkList,
     isError: isErrorArtworkList,
   } = useQuery(['artwork', 'list', ['tag', tagId]], getArtworkList(tagId), {
-    onSuccess: () => {
-      setTagId(tagId)
-    },
     staleTime: 1 * 60 * 1000,
   })
   console.log(artworkListData)
@@ -41,7 +38,7 @@ const Discover = () => {
       </section>
       <section className={styles.discoverBox}>
         <h1>Discover</h1>
-        {tagDataLoading ? <Loading heightValue={undefined} /> : <TagList />}
+        {tagDataLoading ? <Loading heightValue={undefined} /> : <TagList setTagId={setTagId} />}
         {isLoadingArtworkList ? <Loading heightValue='260px' /> : <ArtworkList artworkListData={artworkListData} />}
       </section>
     </div>
