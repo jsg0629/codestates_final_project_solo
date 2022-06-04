@@ -1,0 +1,50 @@
+/* stylelint-disable selector-class-pattern */
+@use '/src/styles/constants/colors';
+@use '/src/styles/mixins/flexbox';
+
+.topArtistSliderWrapper {
+  @include flexbox.flexbox(center, center);
+
+  .endBtn {
+    svg {
+      cursor: default;
+      fill: #b6b1b165;
+    }
+  }
+
+  .beforeBtn,
+  .nextBtn {
+    svg {
+      fill: #413c3c65;
+    }
+  }
+
+  .beforeBtn:hover,
+  .nextBtn:hover {
+    background-color: #e6e1e165;
+    border-radius: 60px;
+  }
+
+  .sliderBox {
+    width: 100%;
+    margin-right: 30px;
+    margin-left: 30px;
+
+    .profileBox {
+      width: 120px;
+      height: 150px;
+      text-align: center;
+
+      img {
+        width: 120px;
+        height: 120px;
+        border-radius: 60px;
+      }
+
+      .profileName {
+        height: 30px;
+        line-height: 30px;
+      }
+    }
+  }
+}
