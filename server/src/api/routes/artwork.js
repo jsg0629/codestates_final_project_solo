@@ -10,11 +10,13 @@ const router = Router()
 const ArtworkServiceInstance = new ArtworkService()
 
 router.get('/', async (req, res) => {
-  const { tag_id, is_selling } = req.query
+  const { tag_id } = req.query
   try {
-    const artworks = await ArtworkServiceInstance.getAllArtworks(tag_id, is_selling, undefined, undefined, undefined)
+    const artworks = await ArtworkServiceInstance.getAllArtworks(tag_id, undefined, undefined)
     res.status(200).json(artworks)
   } catch (err) {
     res.status(404).json(err.toString())
   }
 })
+
+export default router

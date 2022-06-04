@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import db from '../models/index'
 
 class HashtagService {
@@ -20,6 +21,32 @@ class HashtagService {
         return { id: el.id, hashtag: el.hashtag }
       })
       return MostUsedArtworktags
+    } catch (err) {
+      throw Error(err.toString())
+    }
+  }
+
+  // artwork_id의 hashtag 조회
+  async getArtworkTag(artwork_id) {
+    try {
+      let hashtags = await this.Hashtag.findAll({
+        attributes: ['hashtag'],
+        include: [
+          {
+            attributes: [],
+            model: this.ArtworkHashtag,
+            where: {
+              artwork_id,
+            },
+          },
+        ],
+      })
+
+      hashtags = hashtags.map((tag) => {
+        return tag.hashtag
+      })
+
+      return hashtags
     } catch (err) {
       throw Error(err.toString())
     }

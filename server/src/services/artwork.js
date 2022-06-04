@@ -4,6 +4,7 @@ import dotenv from 'dotenv'
 
 import db from '../models/index'
 import UserService from './user'
+import HashtagService from './hashtag'
 
 dotenv.config()
 
@@ -15,6 +16,7 @@ class ArtworkService {
     this.Hashtag = db.Hashtag
     this.ArtworkHashtag = db.ArtworkHashtag
     this.UserServiceInterface = new UserService()
+    this.HashtagServiceInterface = new HashtagService()
   }
 
   // 모든 artwork 조회
@@ -36,13 +38,13 @@ class ArtworkService {
         },
       ]
     }
+
     if (owner_id !== undefined) {
       options.where = { owner_id }
     }
 
     try {
       let artworks = await this.Artwork.findAll(options)
-
       artworks = await Promise.all(
         artworks.map(async (val) => {
           const _val = val.dataValues
@@ -51,6 +53,7 @@ class ArtworkService {
           return { ..._val, ...additionalInfo }
         })
       )
+
       return artworks
     } catch (err) {
       throw Error(err.toString())

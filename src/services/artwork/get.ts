@@ -6,3 +6,10 @@ export const getMostUsedTags = (setTopTagData: Function) => {
     return setTopTagData(res.data)
   })
 }
+
+export const getArtworkList = (tagId?: number) => async () => {
+  const { data } = await axios.get(`${HOST_ADDRESS}/artwork`, {
+    params: { tag_id: tagId },
+  })
+  return data
+}

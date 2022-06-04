@@ -4,23 +4,36 @@ import ArtworkList from './ArtworkList'
 import TagList from './TagList.tsx'
 
 import { useQuery } from 'react-query'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 import { useRecoil } from 'hooks/state'
 import { topTagDataState } from 'states/artwork'
 
-import { getMostUsedTags } from 'services/artwork/get'
+import { getMostUsedTags, getArtworkList } from 'services/artwork/get'
 
 import Loading from 'components/Loading'
 
 const Discover = () => {
+  const [tagId, setTagId] = useState<undefined | number>(undefined)
   const [, setTopTagData] = useRecoil(topTagDataState)
 
   const { isLoading: tagDataLoading } = useQuery(['tag', 'top'], () => {
     getMostUsedTags(setTopTagData)
   })
 
-  console.log(tagDataLoading)
+  const {
+    data: artworkListData,
+    isLoading: isLoadingArtworkList,
+    isError: isErrorArtworkList,
+  } = useQuery(['artwork', 'list', ['tag', tagId]], getArtworkList(tagId), {
+    onSuccess: () => {
+      setTagId(tagId)
+    },
+    staleTime: 1 * 60 * 1000,
+  })
+
+  console.log(artworkListData)
+
   return (
     <div className={styles.discoverWrapper}>
       <section className={styles.topArtistBox}>
