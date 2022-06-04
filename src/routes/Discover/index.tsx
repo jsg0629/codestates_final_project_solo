@@ -31,7 +31,6 @@ const Discover = () => {
     },
     staleTime: 1 * 60 * 1000,
   })
-
   console.log(artworkListData)
 
   return (
@@ -42,8 +41,8 @@ const Discover = () => {
       </section>
       <section className={styles.discoverBox}>
         <h1>Discover</h1>
-        {tagDataLoading ? <Loading /> : <TagList />}
-        <ArtworkList />
+        {tagDataLoading ? <Loading heightValue={undefined} /> : <TagList />}
+        {isLoadingArtworkList ? <Loading heightValue='260px' /> : <ArtworkList artworkListData={artworkListData} />}
       </section>
     </div>
   )

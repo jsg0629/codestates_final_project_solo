@@ -45,7 +45,7 @@ const TopArtistSlider = () => {
       </button>
       <ul className={styles.sliderBox}>
         {isLoading ? (
-          <Loading />
+          <Loading heightValue={undefined} />
         ) : (
           <Slider className={styles.slider} ref={slickRef} {...initialSettings}>
             {topUserData.map((userData: IUserData) => {

@@ -1,0 +1,75 @@
+@use '/src/styles/constants/colors';
+@use '/src/styles/mixins/flexbox';
+
+.artworkListWrapper {
+  @include flexbox.flexbox;
+  flex-wrap: wrap;
+
+  .artworkWrapper {
+    flex-basis: 50%;
+
+    li {
+      position: relative;
+      height: 25rem;
+      margin: 1rem;
+      box-shadow: rgba(14, 30, 37, 12%) 0 2px 4px 0, rgba(14, 30, 37, 32%) 0 2px 16px 0;
+      transition: all 0.7s ease;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .cardHoverArea {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        color: colors.$WHITE;
+        text-shadow: 2px 2px 2px grey;
+        opacity: 0;
+        transition: backdrop-filter 100ms, opacity 100ms;
+
+        .contentsBox {
+          position: absolute;
+          bottom: 0;
+          padding: 30px;
+
+          .cardTitle {
+            margin-bottom: 0.5em;
+            font-family: Roboto, Helvetica, Arial, sans-serif;
+            font-size: 1.5rem;
+            font-weight: 400;
+            line-height: 1.334;
+            letter-spacing: 0;
+          }
+
+          .cardOwner {
+            margin-bottom: 0.5em;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.5;
+            letter-spacing: 0.0094em;
+          }
+
+          .moreInfromation {
+            font-size: 0.9rem;
+            @include flexbox.flexbox(between, center);
+          }
+        }
+      }
+
+      .cardHoverArea:hover {
+        backdrop-filter: blur(50px) opacity(1);
+        opacity: 1;
+      }
+    }
+  }
+
+  li:hover {
+    box-shadow: rgba(50, 50, 93, 25%) 0 50px 100px -20px, rgba(0, 0, 0, 30%) 0 30px 60px -30px;
+    backdrop-filter: blur(50px) opacity(1);
+    opacity: 1;
+  }
+}

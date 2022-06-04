@@ -13,7 +13,7 @@ const Main = () => {
   return (
     <div className={styles.appWrapper}>
       {isLoading ? (
-        <Loading />
+        <Loading heightValue={undefined} />
       ) : (
         <div className={styles.mainContentsWrapper}>
           <div className={styles.titleBox}>
