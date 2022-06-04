@@ -52,13 +52,11 @@ const topTagData = [
 ]
 
 const Discover = () => {
-  const [TagsData, setTopTagData] = useRecoil(topTagDataState)
+  const [tagsData, setTopTagData] = useRecoil(topTagDataState)
 
   useEffect(() => {
     setTopTagData(topTagData)
-  }, [TagsData, setTopTagData])
-
-  console.log(TagsData)
+  }, [tagsData, setTopTagData])
 
   return (
     <div className={styles.discoverWrapper}>
