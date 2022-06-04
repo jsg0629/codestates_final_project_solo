@@ -1,7 +1,17 @@
+@use '/src/styles/constants/colors';
+@use '/src/styles/mixins/flexbox';
+
 .discoverWrapper {
   .discoverBox {
     min-height: 420px;
     margin-top: 6rem;
+
+    .empty {
+      font-size: 3rem;
+      line-height: 260px;
+      color: colors.$SUB_TITLE;
+      text-align: center;
+    }
   }
 
   h1 {

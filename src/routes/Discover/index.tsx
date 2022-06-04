@@ -30,6 +30,12 @@ const Discover = () => {
   })
   console.log(artworkListData)
 
+  const isEmpty = artworkListData?.length === 0
+  const emptyCheackResult = isEmpty ? (
+    <div className={styles.empty}>Empty</div>
+  ) : (
+    <ArtworkList artworkListData={artworkListData} />
+  )
   return (
     <div className={styles.discoverWrapper}>
       <section className={styles.topArtistBox}>
@@ -39,7 +45,7 @@ const Discover = () => {
       <section className={styles.discoverBox}>
         <h1>Discover</h1>
         {tagDataLoading ? <Loading heightValue={undefined} /> : <TagList setTagId={setTagId} />}
-        {isLoadingArtworkList ? <Loading heightValue='260px' /> : <ArtworkList artworkListData={artworkListData} />}
+        {isLoadingArtworkList ? <Loading heightValue='260px' /> : emptyCheackResult}
       </section>
     </div>
   )
