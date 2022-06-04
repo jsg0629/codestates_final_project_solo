@@ -11,11 +11,11 @@ const Main = () => {
   if (isError) return <Error />
 
   return (
-    <div>
+    <div className={styles.appWrapper}>
       {isLoading ? (
         <Loading />
       ) : (
-        <div className={styles.appWrapper}>
+        <div className={styles.mainContentsWrapper}>
           <div className={styles.titleBox}>
             <div className={styles.firstItem}>
               Donate for your <mark>ARTIST</mark>

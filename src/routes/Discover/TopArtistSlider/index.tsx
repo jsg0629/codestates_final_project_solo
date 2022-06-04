@@ -1,5 +1,8 @@
 import styles from './TopArtistSlider.module.scss'
 import Slider from 'react-slick'
+import { useQuery } from 'react-query'
+
+import { getTopCreators } from 'services/user/get'
 import { useState, useRef, useCallback } from 'react'
 import { MdNavigateBefore, MdNavigateNext } from 'react-icons/md'
 
@@ -7,12 +10,17 @@ import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 
 import { dummyData } from './dummy'
+import Loading from 'components/Loading'
+import Profile from './profile'
+import { IUserData } from 'types/user'
 
 const TopArtistSlider = () => {
   const [isEnd, setIsEnd] = useState(false)
   const slickRef = useRef<Slider>(null)
   const [profilesData, setProfilesData] = useState(dummyData)
-  console.log(profilesData)
+  const { data: topUserData, isError, isLoading } = useQuery(['user', 'top'], getTopCreators())
+
+  console.log(topUserData)
 
   const initialSettings = {
     dots: false,
@@ -40,16 +48,15 @@ const TopArtistSlider = () => {
         <MdNavigateBefore size={35} />
       </button>
       <ul className={styles.sliderBox}>
-        <Slider className={styles.slider} ref={slickRef} {...initialSettings}>
-          {profilesData.map((el) => {
-            return (
-              <li className={styles.profileBox} key={`profileKey${el.name}`}>
-                <img src={el.profileImg} alt='profile img' />
-                <div className={styles.profileName}>{el.name}</div>
-              </li>
-            )
-          })}
-        </Slider>
+        {isLoading ? (
+          <Loading />
+        ) : (
+          <Slider className={styles.slider} ref={slickRef} {...initialSettings}>
+            {topUserData.map((userData: IUserData) => {
+              return <Profile userData={userData} key={`profileKey${userData.name}`} />
+            })}
+          </Slider>
+        )}
       </ul>
       <button onClick={next} type='button' className={isEnd ? styles.endBtn : styles.nextBtn}>
         <MdNavigateNext size={35} />
