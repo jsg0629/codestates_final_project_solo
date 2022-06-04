@@ -3,9 +3,9 @@ import Tag from './Tag'
 
 const TagList = () => {
   return (
-    <div className={styles.tagListWrapper}>
+    <ul className={styles.tagListWrapper}>
       <Tag />
-    </div>
+    </ul>
   )
 }
 
