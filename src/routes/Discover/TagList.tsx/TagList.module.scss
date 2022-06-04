@@ -15,8 +15,17 @@
       transition: all 0.4s ease;
     }
 
+    .fill {
+      color: colors.$WHITE;
+      background-color: colors.$SIGNATURE_COLOR;
+    }
+
     button:hover {
       background-color: rgb(247, 247, 247);
+    }
+
+    .fill:hover {
+      background-color: colors.$SIGNATURE_COLOR_LEVEL2;
     }
   }
 }
