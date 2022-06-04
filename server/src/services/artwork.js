@@ -79,6 +79,27 @@ class ArtworkService {
 
     return { ...owner_name.dataValues, like_count, comment_count, hashtags }
   }
+
+  // 하나의 artwork에 대한 디테일한 정보 가져오기(detail page 용)
+  async getOneArtworkDetail(artwork_id) {
+    const artworkInfo = await this.Artwork.findOne({
+      attributes: [
+        ['id', 'artwork_id'],
+        'title',
+        ['desc', 'description'],
+        ['imgURI', 'image'],
+        'price',
+        'views',
+        'owner_id',
+        'createdAt',
+      ],
+      where: { id: artwork_id },
+    })
+
+    const additionalInfo = await this.getOneArtworkAdditional(artwork_id, artworkInfo.dataValues.owner_id)
+
+    return { ...artworkInfo.dataValues, ...additionalInfo }
+  }
 }
 
 export default ArtworkService
