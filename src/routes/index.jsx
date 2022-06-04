@@ -24,7 +24,7 @@ const App = () => {
             <Route path='/' element={<Main />} />
             <Route path='Login' element={<Login />} />
             <Route path='Discover' element={<Discover />} />
-            <Route path='ArtDetail' element={<ArtDetail />} />
+            <Route path='artwork/:artwork_id' element={<ArtDetail />} />
             <Route path='Upload' element={<Upload />} />
             <Route path='Mypage' element={<Mypage />} />
             <Route path='User' element={<User />} />
