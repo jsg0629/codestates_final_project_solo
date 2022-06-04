@@ -3,61 +3,24 @@ import TopArtistSlider from './TopArtistSlider'
 import ArtworkList from './ArtworkList'
 import TagList from './TagList.tsx'
 
+import { useQuery } from 'react-query'
 import { useEffect } from 'react'
 
 import { useRecoil } from 'hooks/state'
 import { topTagDataState } from 'states/artwork'
 
-const topTagData = [
-  {
-    id: 11,
-    hashtag: 'hashtag11',
-  },
-  {
-    id: 13,
-    hashtag: 'hashtag13',
-  },
-  {
-    id: 12,
-    hashtag: 'hashtag12',
-  },
-  {
-    id: 8,
-    hashtag: 'hashtag8',
-  },
-  {
-    id: 3,
-    hashtag: 'hashtag3',
-  },
-  {
-    id: 7,
-    hashtag: 'hashtag7',
-  },
-  {
-    id: 14,
-    hashtag: 'hashtag14',
-  },
-  {
-    id: 5,
-    hashtag: 'hashtag5',
-  },
-  {
-    id: 10,
-    hashtag: 'hashtag10',
-  },
-  {
-    id: 2,
-    hashtag: 'hashtag2',
-  },
-]
+import { getMostUsedTags } from 'services/artwork/get'
+
+import Loading from 'components/Loading'
 
 const Discover = () => {
-  const [tagsData, setTopTagData] = useRecoil(topTagDataState)
+  const [, setTopTagData] = useRecoil(topTagDataState)
 
-  useEffect(() => {
-    setTopTagData(topTagData)
-  }, [tagsData, setTopTagData])
+  const { isLoading: tagDataLoading } = useQuery(['tag', 'top'], () => {
+    getMostUsedTags(setTopTagData)
+  })
 
+  console.log(tagDataLoading)
   return (
     <div className={styles.discoverWrapper}>
       <section className={styles.topArtistBox}>
@@ -66,7 +29,7 @@ const Discover = () => {
       </section>
       <section className={styles.discoverBox}>
         <h1>Discover</h1>
-        <TagList />
+        {tagDataLoading ? <Loading /> : <TagList />}
         <ArtworkList />
       </section>
     </div>

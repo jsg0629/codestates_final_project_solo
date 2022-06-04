@@ -10,7 +10,6 @@ import { ITopTagData } from 'types/artwork'
 const TagList = () => {
   const [tagsData] = useRecoil(topTagDataState)
   const [clickedTagId, setClickedTagId] = useState(0)
-  console.log(tagsData)
 
   const handleTagClick = (Id: number) => {
     setClickedTagId(Id)

@@ -9,7 +9,6 @@ import { MdNavigateBefore, MdNavigateNext } from 'react-icons/md'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 
-import { dummyData } from './dummy'
 import Loading from 'components/Loading'
 import Profile from './profile'
 import { IUserData } from 'types/user'
@@ -17,10 +16,7 @@ import { IUserData } from 'types/user'
 const TopArtistSlider = () => {
   const [isEnd, setIsEnd] = useState(false)
   const slickRef = useRef<Slider>(null)
-  const [profilesData, setProfilesData] = useState(dummyData)
   const { data: topUserData, isError, isLoading } = useQuery(['user', 'top'], getTopCreators())
-
-  console.log(topUserData)
 
   const initialSettings = {
     dots: false,
