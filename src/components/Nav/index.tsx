@@ -22,7 +22,7 @@ const Nav = () => {
       </div>
       <div className={styles.rightItems}>
         <div className={styles.searchInputBox}>
-          <input type='text' placeholder='Search illustrator...' />
+          <input type='text' placeholder='Search Artist....' />
           <span className={styles.separator}> </span>
           <FaSearch className={styles.searchIcon} />
         </div>

@@ -87,7 +87,7 @@ class ArtworkService {
         ['id', 'artwork_id'],
         'title',
         ['desc', 'description'],
-        ['imgURI', 'image'],
+        ['imgURI', 'imgURI'],
         'price',
         'views',
         'owner_id',

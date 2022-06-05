@@ -14,3 +14,9 @@ export interface IArtworkData {
   comment_count: string
   hashtags: string[] | string
 }
+
+export interface IDetailArtworkData extends IArtworkData {
+  description: string
+  owner_id: number
+  createdAt: string
+}

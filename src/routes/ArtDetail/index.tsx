@@ -7,17 +7,23 @@ import { useParams } from 'react-router-dom'
 
 import Contents from './Contents'
 import Comment from './Comment'
+import Loading from 'components/Loading'
 
 const ArtDetail = () => {
   const { artwork_id } = useParams()
 
   const { data: artworkData, isError, isLoading } = useQuery(['artwork', artwork_id], getArtworkById(artwork_id))
 
-  console.log(artworkData)
   return (
     <div className={styles.artDetailWrapper}>
-      <Contents />
-      <Comment />
+      {isLoading ? (
+        <Loading heightValue={undefined} />
+      ) : (
+        <div className={styles.artDetailBox}>
+          <Contents artworkData={artworkData} />
+          <Comment />
+        </div>
+      )}
     </div>
   )
 }
