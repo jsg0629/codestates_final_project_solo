@@ -69,13 +69,13 @@
         .ownerName {
           color: colors.$BLACK;
 
-          mark {
-            cursor: pointer;
-            background-color: colors.$WHITE;
+          a {
+            margin-left: 5px;
+            color: colors.$BLACK;
             transition: all 0.3s ease;
           }
 
-          mark:hover {
+          a:hover {
             color: colors.$SIGNATURE_COLOR;
           }
         }

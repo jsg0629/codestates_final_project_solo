@@ -41,9 +41,15 @@
         border-radius: 60px;
       }
 
-      .profileName {
+      a {
         height: 30px;
         line-height: 30px;
+        color: colors.$BLACK;
+        transition: all 0.3s ease;
+      }
+
+      a:hover {
+        color: colors.$SIGNATURE_COLOR;
       }
     }
   }

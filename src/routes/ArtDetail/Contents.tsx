@@ -4,11 +4,12 @@ import styles from './ArtDetail.module.scss'
 import { IDetailArtworkData } from 'types/artwork'
 
 import dayjs from 'dayjs'
+import { Link } from 'react-router-dom'
 
 import { MdFavoriteBorder } from 'react-icons/md'
 
 const Contents = ({ artworkData }: { artworkData: IDetailArtworkData }) => {
-  const { title, description, imgURI, price, views, createdAt, owner_name, hashtags } = artworkData
+  const { title, description, imgURI, price, views, createdAt, owner_name, hashtags, owner_id } = artworkData
 
   const date = dayjs(createdAt)
   let hashtagList
@@ -39,7 +40,8 @@ const Contents = ({ artworkData }: { artworkData: IDetailArtworkData }) => {
 
       <div className={styles.moreInfrom}>
         <div className={styles.ownerName}>
-          Created by <mark>{owner_name}</mark>
+          Created by
+          <Link to={`/user/${owner_id}`}>{owner_name}</Link>
         </div>
         <div>{date.format('YYYY-MM-DD')}</div>
         <div>{views} views</div>
