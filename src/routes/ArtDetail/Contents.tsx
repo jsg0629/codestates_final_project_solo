@@ -8,20 +8,7 @@ import dayjs from 'dayjs'
 import { MdFavoriteBorder } from 'react-icons/md'
 
 const Contents = ({ artworkData }: { artworkData: IDetailArtworkData }) => {
-  const {
-    artwork_id,
-    title,
-    description,
-    imgURI,
-    price,
-    views,
-    owner_id,
-    createdAt,
-    owner_name,
-    like_count,
-    comment_count,
-    hashtags,
-  } = artworkData
+  const { title, description, imgURI, price, views, createdAt, owner_name, hashtags } = artworkData
 
   const date = dayjs(createdAt)
   let hashtagList
