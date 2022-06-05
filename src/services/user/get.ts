@@ -6,3 +6,9 @@ export const getTopCreators = () => async () => {
   const { data } = await axios.get(`${HOST_ADDRESS}/user/top`)
   return data
 }
+
+// other user info
+export const getUserById = (id: undefined | string | string[]) => async () => {
+  const { data } = await axios.get(`${HOST_ADDRESS}/user/${id}`)
+  return data
+}
