@@ -1,0 +1,50 @@
+@use '/src/styles/constants/colors';
+@use '/src/styles/mixins/flexbox';
+
+.userWrapper {
+  height: 72.7vh;
+  margin-top: 7rem;
+
+  .userContentsWrapper {
+    width: 250px;
+
+    .userImgBox {
+      img {
+        width: 100%;
+        border-radius: 6px;
+      }
+    }
+
+    .userName {
+      margin: 2rem 0;
+      margin-left: 0.5rem;
+      font-size: 1.5rem;
+      font-weight: 400;
+      line-height: 1.334;
+      letter-spacing: 0;
+    }
+
+    .userMoreInform {
+      svg {
+        margin-left: 15px;
+        color: colors.$SUB_TITLE;
+      }
+    }
+
+    .donateBtn {
+      width: 100%;
+      padding: 10px 16px;
+      margin-top: 2rem;
+      font-size: 0.8rem;
+      color: colors.$WHITE;
+      background-color: colors.$SIGNATURE_COLOR;
+      border-radius: 4px;
+      box-shadow: 0 3px 1px -2px rgb(0 0 0 / 20%), 0 2px 2px 0 rgb(0 0 0 / 14%), 0 1px 5px 0 rgb(0 0 0 / 12%);
+      transition: all 0.3s ease;
+    }
+
+    .donateBtn:hover {
+      background-color: colors.$SIGNATURE_COLOR_LEVEL2;
+    }
+  }
+}
