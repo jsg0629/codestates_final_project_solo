@@ -15,7 +15,7 @@
     1. `mysql -u root -p`  mysql CLI에 접속하는 명령어 입니다.
     2. 비밀번호 입력
     3. `create database MYSQL_NAME;` Database 를 생성하는 쿼리문 입니다.
-5.  server 폴더에서 `npm run start`  schema 를 생성 해 줍니다
+5.  server 폴더에서 `yarn start`  schema 를 생성 해 줍니다
 6.  server 구동을 꺼주시고, `npx sequelize-cli db:seed:all` 을 통해서 seeders폴데에 세팅된 더미데이터를 생성 해 줍니다. 
 7. server 실행 server 폴더에서 `yarn start` 
 8. client 실행 root 폴더에서 `yarn start`
