@@ -1,17 +1,15 @@
-import styles from './TopArtistSlider.module.scss'
 import Slider from 'react-slick'
-import { useQuery } from 'react-query'
-
-import { getTopCreators } from 'services/user/get'
-import { useState, useRef, useCallback } from 'react'
-import { MdNavigateBefore, MdNavigateNext } from 'react-icons/md'
-
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
+import { useQuery } from 'react-query'
+import { useState, useRef, useCallback } from 'react'
+import { MdNavigateBefore, MdNavigateNext } from 'react-icons/md'
+import { getTopCreators } from 'services/user/get'
+import { IUserData } from 'types/user'
 
 import Loading from 'components/Loading'
 import Profile from './profile'
-import { IUserData } from 'types/user'
+import styles from './TopArtistSlider.module.scss'
 
 const TopArtistSlider = () => {
   const [isEnd, setIsEnd] = useState(false)

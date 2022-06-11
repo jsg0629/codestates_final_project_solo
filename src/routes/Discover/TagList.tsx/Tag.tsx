@@ -1,5 +1,6 @@
-import styles from './TagList.module.scss'
 import { ITopTagData } from 'types/artwork'
+
+import styles from './TagList.module.scss'
 
 const Tag = ({
   tagData,

@@ -1,5 +1,4 @@
 import { Routes, Route } from 'react-router-dom'
-import styles from './Routes.module.scss'
 import { FaGithub } from 'react-icons/fa'
 import { SiNotion } from 'react-icons/si'
 
@@ -11,6 +10,8 @@ import Mypage from './Mypage'
 import Upload from './Upload'
 import User from './User'
 import Nav from 'components/Nav'
+
+import styles from './Routes.module.scss'
 
 const App = () => {
   return (

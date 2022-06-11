@@ -1,11 +1,10 @@
+import { Link } from 'react-router-dom'
 import { useQuery } from 'react-query'
-
-import styles from './Main.module.scss'
 import { getMainData } from '../../services/main/get'
+
 import Error from 'components/Error'
 import Loading from 'components/Loading'
-
-import { Link } from 'react-router-dom'
+import styles from './Main.module.scss'
 
 const Main = () => {
   const { data, isError, isLoading } = useQuery(['main'], getMainData())

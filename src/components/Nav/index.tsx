@@ -1,7 +1,7 @@
-import styles from './Nav.module.scss'
 import { Link } from 'react-router-dom'
-import Art1stLogo from '../../assets/images/Art1st.png'
 import { FaSearch } from 'react-icons/fa'
+import Art1stLogo from '../../assets/images/Art1st.png'
+import styles from './Nav.module.scss'
 
 const Nav = () => {
   return (

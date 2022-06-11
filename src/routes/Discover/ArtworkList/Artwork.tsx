@@ -1,12 +1,12 @@
 /* eslint-disable camelcase */
-import styles from './ArtworkList.module.scss'
 
-import { IArtworkData } from 'types/artwork'
 import { BiCommentDetail } from 'react-icons/bi'
 import { MdFavorite } from 'react-icons/md'
 import { IoIosEye } from 'react-icons/io'
-
 import { Link } from 'react-router-dom'
+import { IArtworkData } from 'types/artwork'
+
+import styles from './ArtworkList.module.scss'
 
 const Artwork = ({ artworkData }: { artworkData: IArtworkData }) => {
   const { artwork_id, title, imgURI, price, views, owner_name, like_count, comment_count, hashtags } = artworkData

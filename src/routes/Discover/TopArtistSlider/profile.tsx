@@ -1,6 +1,7 @@
-import styles from './TopArtistSlider.module.scss'
 import { IUserData } from 'types/user'
 import { Link } from 'react-router-dom'
+
+import styles from './TopArtistSlider.module.scss'
 
 const Profile = ({ userData }: { userData: IUserData }) => {
   return (

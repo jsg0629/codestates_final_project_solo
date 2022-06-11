@@ -1,7 +1,6 @@
-import styles from './ArtworkList.module.scss'
-import Artwork from './Artwork'
-
 import { IArtworkData } from 'types/artwork'
+import Artwork from './Artwork'
+import styles from './ArtworkList.module.scss'
 
 const ArtworkList = ({ artworkListData }: { artworkListData: IArtworkData[] }) => {
   return (

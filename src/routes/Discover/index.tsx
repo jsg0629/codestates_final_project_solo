@@ -1,17 +1,14 @@
-import styles from './Discover.module.scss'
-import TopArtistSlider from './TopArtistSlider'
-import ArtworkList from './ArtworkList'
-import TagList from './TagList.tsx'
-
 import { useQuery } from 'react-query'
 import { useEffect, useState } from 'react'
-
 import { useRecoil } from 'hooks/state'
 import { topTagDataState } from 'states/artwork'
-
 import { getMostUsedTags, getArtworkList } from 'services/artwork/get'
 
+import TagList from './TagList.tsx'
+import ArtworkList from './ArtworkList'
+import TopArtistSlider from './TopArtistSlider'
 import Loading from 'components/Loading'
+import styles from './Discover.module.scss'
 
 const Discover = () => {
   const [tagId, setTagId] = useState<undefined | number>(undefined)

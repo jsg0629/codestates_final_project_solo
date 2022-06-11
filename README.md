@@ -1,5 +1,4 @@
 # 실행 방법
-시간이 모자라서 배포를 하지 못했습니다.. clone 받으셔서 앱 구동 해 주세요 
 1. root폴더(client) `yarn install`  라이브러리 다운로드  
 2. server 폴더에서 `yarn install`  라이브러리 다운로드
 3. server 폴더에 .env 파일을 .env example에 맞춰서 작성해주세요. ( MYSQL_PORT만 3306으로 )

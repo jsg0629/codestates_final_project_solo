@@ -1,12 +1,12 @@
 /* eslint-disable camelcase */
-import styles from './User.module.scss'
+import { AiOutlineInstagram, AiOutlineTwitter, AiFillFacebook } from 'react-icons/ai'
+
 import { useParams } from 'react-router-dom'
 import { useQuery } from 'react-query'
-
 import { getUserById } from 'services/user/get'
 
 import Loading from 'components/Loading'
-import { AiOutlineInstagram, AiOutlineTwitter, AiFillFacebook } from 'react-icons/ai'
+import styles from './User.module.scss'
 
 const User = () => {
   const { user_id } = useParams()

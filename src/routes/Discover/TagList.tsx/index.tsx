@@ -1,11 +1,10 @@
-import styles from './TagList.module.scss'
-import Tag from './Tag'
-
 import { useRecoil } from 'hooks/state'
 import { useState } from 'react'
 import { topTagDataState } from 'states/artwork'
-
 import { ITopTagData } from 'types/artwork'
+
+import Tag from './Tag'
+import styles from './TagList.module.scss'
 
 const TagList = ({ setTagId }: { setTagId: Function }) => {
   const [tagsData] = useRecoil(topTagDataState)
