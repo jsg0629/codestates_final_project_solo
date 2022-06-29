@@ -22,7 +22,7 @@
 
 # Art1st Notion
 관련된 추가적인 정보는 노션에 작성하였으니 아래 링크로 이동 해 주세요 <br>
-[Art1st Notion](https://fluoridated-cayenne-db1.notion.site/Wanted_final_project_-3770a1b65d3244f18f7b3b56579ac2c5)
+[Art1st Notion](https://jsg0629.notion.site/Wanted_final_project_-3770a1b65d3244f18f7b3b56579ac2c5)
 
 ## Intro
 
